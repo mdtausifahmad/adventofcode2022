@@ -19,7 +19,8 @@ fun getPointOfRound(first: Char, second: Char): Int {
           return when (first) {
               'A' -> 1 + 3
               'B' -> 1
-              else -> 1 + 6
+              'C' -> 1 + 6
+              else -> error("Check Input")
           }
 
       }
@@ -27,16 +28,19 @@ fun getPointOfRound(first: Char, second: Char): Int {
           return when (first) {
               'A' -> 2 + 6
               'B' -> 2 + 3
-              else -> 2
+              'C' -> 2
+              else -> error("Check Input")
           }
       }
-      else -> {
+      'Z' -> {
           return when (first) {
               'A' -> 3
               'B' -> 3 + 6
-              else -> 3 + 3
+              'C' -> 3 + 3
+              else -> error("Check Input")
           }
       }
+       else -> error("Check Input")
     }
 }
 
@@ -46,7 +50,8 @@ fun getPointOfRoundSecondPart(first: Char, second: Char): Int {
             return when (first) {
                 'A' -> 3
                 'B' -> 1
-                else -> 2
+                'C' -> 2
+                else -> error("Check Input")
             }
 
         }
@@ -54,15 +59,18 @@ fun getPointOfRoundSecondPart(first: Char, second: Char): Int {
             return when (first) {
                 'A' -> 1 + 3
                 'B' -> 2 + 3
-                else -> 3 + 3
+                'C' -> 3 + 3
+                else -> error("Check Input")
             }
         }
-        else -> {
+        'Z' -> {
             return when (first) {
                 'A' -> 2 + 6
                 'B' -> 3 + 6
-                else -> 1 + 6
+                'C' -> 1 + 6
+                else -> error("Check Input")
             }
         }
+        else -> error("Check Input")
     }
 }
