@@ -49,3 +49,13 @@ fun getBadgesFromRuckSacks(ruckSacks: List<String>): Char{
     val third = ruckSacks[2].toSet()
     return(first intersect second intersect third).single()
 }
+
+fun solution1(){
+    File("src/Day03.txt")
+        .readText()
+        .split("\n")
+        .flatMap { it.lines() }
+        .map { it.chunked(it.length /2) }
+        .map { it[0].toSet() intersect it[1].toSet() }
+        .sumOf { getPriority(it.first()) }
+}
