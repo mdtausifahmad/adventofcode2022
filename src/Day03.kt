@@ -6,6 +6,7 @@ fun main(){
 
     val sumOfPriorities = File("src/Day03.txt")
         .readText()
+        .also { println(it) }
         .split("\n")
         .flatMap { it.lines() }
         .map { getCommonCharacters(it) }
@@ -36,18 +37,14 @@ fun getPriority(char: Char): Int {
 
 fun getCommonCharacters(input: String): Set<Char> {
 
-    val compartments = input.chunked(input.length / 2)
-    val firstCompartment = compartments[0].toSet()
-    val secondCompartment = compartments[1].toSet()
-    return firstCompartment intersect secondCompartment
+    val (firstCompartment,secondCompartment) = input.chunked(input.length / 2)
+    return firstCompartment.toSet() intersect secondCompartment.toSet()
 
 }
 
 fun getBadgesFromRuckSacks(ruckSacks: List<String>): Char{
-    val first = ruckSacks[0].toSet()
-    val second = ruckSacks[1].toSet()
-    val third = ruckSacks[2].toSet()
-    return(first intersect second intersect third).single()
+    val (first, second, third)  = ruckSacks
+    return(first.toSet() intersect second.toSet() intersect third.toSet()).single()
 }
 
 fun solution1(){
